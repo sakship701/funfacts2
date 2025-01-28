@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Cultural Facts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #8fd3f4);
+            background-size: 400% 400%;
+            animation: gradientBG 10s infinite;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #ff5722;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 2rem;
+            min-height: 50px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button {
+            font-size: 1rem;
+            color: white;
+            background: linear-gradient(90deg, #ff6f61, #ff9157);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .bird {
+            width: 50px;
+            height: 50px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/Black-bird-silhouette.png') no-repeat center/contain;
+            position: absolute;
+            animation: fly 10s linear infinite;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translate(-10%, 50%) scale(0.5);
+            }
+            50% {
+                transform: translate(110%, -30%) scale(1);
+            }
+            100% {
+                transform: translate(-10%, 50%) scale(0.5);
+            }
+        }
+
+        .bird:nth-child(2) {
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .bird:nth-child(3) {
+            animation-delay: 4s;
+            animation-duration: 14s;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Discover Indian Culture</h1>
+        <p id="fact">Click the button to see a cultural fact!</p>
+        <button onclick="showFact()">Show Me a Fact</button>
+    </div>
+
+    <div class="bird" style="top: 10%; left: 0;"></div>
+    <div class="bird" style="top: 20%; left: 0;"></div>
+    <div class="bird" style="top: 30%; left: 0;"></div>
+
+    <script>
+        const facts = [
+            "India is the birthplace of Yoga and Ayurveda.",
+            "The Kumbh Mela gathering in India is so large it is visible from space.",
+            "India has 22 officially recognized languages.",
+            "Diwali, the festival of lights, is celebrated across the globe.",
+            "The Indian Railways is the largest employer in the country.",
+            "India is home to the world’s highest cricket ground in Chail, Himachal Pradesh.",
+            "The Taj Mahal changes color during different times of the day.",
+            "Rajasthan’s Pushkar Fair is one of the largest camel fairs in the world."
+        ];
+
+        function showFact() {
+            const factElement = document.getElementById('fact');
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            factElement.textContent = facts[randomIndex];
+            factElement.style.color = `hsl(${Math.random() * 360}, 70%, 50%)`;
+        }
+    </script>
+</body>
+</html>
